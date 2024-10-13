@@ -1,59 +1,60 @@
-Build a simple expense tracker application to manage your finances. The application should allow users to add, delete, and view their expenses. The application should also provide a summary of the expenses.
+# Expense Tracker CLI
 
-Requirements
-Application should run from the command line and should have the following features:
+A simple command-line-based expense tracker to help you manage your finances. It allows users to add, update, delete, and view expenses. The application also provides summaries of expenses, including monthly summaries and budget management.
 
-Users can add an expense with a description and amount.
-Users can update an expense.
-Users can delete an expense.
-Users can view all expenses.
-Users can view a summary of all expenses.
-Users can view a summary of expenses for a specific month (of current year).
-Here are some additional features that you can add to the application:
 
-Add expense categories and allow users to filter expenses by category.
-Allow users to set a budget for each month and show a warning when the user exceeds the budget.
-Allow users to export expenses to a CSV file.
-The list of commands and their expected output is shown below:
+## Features
+Add Expenses: Users can add an expense with a description and amount.
+Update Expenses: Users can update the details of an existing expense.
+Delete Expenses: Users can remove an expense by specifying its ID.
+View Expenses: Users can list all expenses.
+Expense Summary: View the total expenses and summaries for a specific month.
+Expense Categories: Categorize expenses and filter them by category.
+Budget Management: Set monthly budgets and receive warnings if the budget is exceeded.
+Export to CSV: Export the list of expenses to a CSV file.
+## Requirements
 
+The application runs from the command line and supports the following features:
+
+Add an expense:
 $ expense-tracker add --description "Lunch" --amount 20
-# Expense added successfully (ID: 1)
+Expense added successfully (ID: 1)
 
-$ expense-tracker add --description "Dinner" --amount 10
-# Expense added successfully (ID: 2)
+Update an expense:
 
-$ expense-tracker list
-# ID  Date       Description  Amount
-# 1   2024-08-06  Lunch        $20
-# 2   2024-08-06  Dinner       $10
+$ expense-tracker update --id 1 --description "Lunch" --amount 25
+Expense updated successfully (ID: 1)
 
-$ expense-tracker summary
-# Total expenses: $30
-
+Delete an expense:
 $ expense-tracker delete --id 1
-# Expense deleted successfully
+Expense deleted successfully (ID: 1)
 
+List all expenses:
+$ expense-tracker list
+ID  Date       Description  Amount
+1   2024-08-06  Lunch        $20
+2   2024-08-06  Dinner       $10
+
+View a summary of all expenses:
 $ expense-tracker summary
-# Total expenses: $20
+Total expenses: $30
 
+View a summary of expenses for a specific month:
 $ expense-tracker summary --month 8
-# Total expenses for August: $20
-Implementation
-You can implement the application using any programming language of your choice. Here are some suggestions:
+Total expenses for August: $20
 
-Use any programming language for any available module for parsing command arguments (e.g. python with the argparse, node.js with commander etc).
-Use a simple text file to store the expenses data. You can use JSON, CSV, or any other format to store the data.
-Add error handling to handle invalid inputs and edge cases (e.g. negative amounts, non-existent expense IDs, etc).
-Use functions to modularize the code and make it easier to test and maintain.
-This project idea is a great way to practice your logic building skills and learn how to interact with the filesystem using a CLI application. It will also help you understand how to manage data and provide useful information to users in a structured way.
+$ expense-tracker budget --amount 50
 
+Export expenses to a CSV file:
+$ expense-tracker export 
+## Usage
 
-Budget $100
-Per Category
-Food: $50
-Entertainment: $30
-Transportation: $20
-Other: $0
+Commands include:
 
-Expenses: $30
-Remaining budget: $70
+add: Add a new expense
+update: Update an existing expense
+delete: Delete an expense
+list: List all expenses
+summary: View expense summary
+budget: Set budget 
+export: Export expenses to a file

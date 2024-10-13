@@ -127,7 +127,10 @@ public class App {
                     System.exit(0);
                     break;
                 case "budget":
-                   setGlobalMonthlyBudget(double budget);
+                if (arguments.length == 3 && arguments[1].equals("--amount")) {
+                    double amount = Double.parseDouble(arguments[2]);
+                    cli.setGlobalMonthlyBudget(amount);
+                }
                 break;
                 case "summary":
                 if (arguments.length == 2) {
